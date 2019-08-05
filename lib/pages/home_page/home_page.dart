@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
       'title': '扩展组件',
       'arr': [
         {'title': '高德地图', 'router': '/gaodeMap'},
+        {'title': '微信相关', 'router': '/wechatFluwx'},
       ]
     }
   ];
@@ -91,18 +92,11 @@ class CommonPage extends StatelessWidget {
       width: 690,
       margin: EdgeInsets.only(left: 10, right: 10),
       padding: EdgeInsets.only(top: 10, bottom: 10),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-          Icon(Icons.keyboard_arrow_right),
-        ],
+      child: Text(
+        title,
+        style: TextStyle(
+          fontSize: 20,
+        ),
       ),
     );
   }
@@ -114,7 +108,7 @@ class CommonPage extends StatelessWidget {
 
     return Container(
       width: 690,
-      margin: EdgeInsets.only(left: 30, right: 10),
+      // margin: EdgeInsets.only(left: 30, right: 10),
       child: Column(
         children: homePageContentList.map((item) {
           return _listContent(context, item);
@@ -126,7 +120,8 @@ class CommonPage extends StatelessWidget {
   // 列表里面内容
   Widget _listContent(context, item) {
     return Container(
-      padding: EdgeInsets.only(top: 20, bottom: 20),
+      height: 60,
+      width: 750,
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -138,12 +133,16 @@ class CommonPage extends StatelessWidget {
       child: InkWell(
         onTap: () {
           // Application.router.navigateTo(context, item['router']);
-          Application.router.navigateTo(context, "${item['router']}?id=${123123123}");
+          Application.router
+              .navigateTo(context, "${item['router']}?id=${123123123}");
         },
         child: Row(
           children: <Widget>[
             Expanded(
-              child: Text(item['title']),
+              child: Container(
+                padding: EdgeInsets.only(left: 30),
+                child: Text(item['title']),
+              ),
             ),
             Icon(Icons.keyboard_arrow_right),
           ],

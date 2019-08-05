@@ -1,42 +1,51 @@
+import 'package:flutter_app/pages/gaode_map/composite/composite.screen.dart';
+import 'package:flutter_app/pages/gaode_map/location/location.screen.dart';
+import 'package:flutter_app/pages/gaode_map/map/map.screen.dart';
+import 'package:flutter_app/pages/gaode_map/navi/navi_screen.dart';
+import 'package:flutter_app/pages/gaode_map/search/search.screen.dart';
+import 'package:flutter_app/pages/gaode_map/widgets/dimens.dart';
 import 'package:flutter/material.dart';
-import 'package:amap_base/amap_base.dart';
 
-/* *
- * 高德地图
- */
-class GaodeMap extends StatefulWidget {
-  @override
-  _GaodeMapState createState() => _GaodeMapState();
-}
 
-class _GaodeMapState extends State<GaodeMap> {
-
-  AMapController _controller;
-
+class GaodeMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('高德地图'),
+        title: const Text('高德地图'),
+        // backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Container(
-        child: AMapView(
-          onAMapViewCreated: (controller) {
-            _controller = controller;
-          },
-          amapOptions: AMapOptions(
-            compassEnabled: false,    // 是否进行压缩，false比较好
-            zoomControlsEnabled: true,  // 是否开启放大缩小按钮
-            logoPosition: LOGO_POSITION_BOTTOM_CENTER,  // 高德地图LOGO位置
-            camera: CameraPosition(
-              target: LatLng(41.851827, 112.801637),  // 默认地图显示位置
-              zoom: 4,  // 默认显示放大倍数
+      // backgroundColor: Color(0xff747474),
+      body: DefaultTabController(
+        length: 5,
+        child: Column(
+          children: <Widget>[
+            Flexible(
+              child: TabBarView(children: [
+                MapDemo(),
+                SearchDemo(),
+                LocationDemo(),
+                NaviScreen(),
+                CompositeScreen(),
+              ]),
             ),
-          ),
+            SPACE_TINY,
+            Container(
+              // color: Colors.black,
+              height: 48,
+              child: TabBar(
+                tabs: [
+                  Text('地图', style: TextStyle(color: Colors.black)),
+                  Text('搜索', style: TextStyle(color: Colors.black)),
+                  Text('定位', style: TextStyle(color: Colors.black)),
+                  Text('导航', style: TextStyle(color: Colors.black)),
+                  Text('综合', style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
-
 }

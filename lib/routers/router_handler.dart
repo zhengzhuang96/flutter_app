@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import '../pages/404.dart';
-import '../pages/widget/widget_text.dart';
-import '../pages/widget/widget_container.dart';
-import '../pages/widget/widget_image.dart';
-import '../pages/widget/widget_listview.dart';
-import '../pages/widget/widget_gridview.dart';
-import '../pages/route_passing_value/route_passing_value.dart';
-import '../pages/gaode_map/gaode_map.dart';
+import 'package:flutter_app/pages/404.dart';
+import 'package:flutter_app/pages/widget/widget_text.dart';
+import 'package:flutter_app/pages/widget/widget_container.dart';
+import 'package:flutter_app/pages/widget/widget_image.dart';
+import 'package:flutter_app/pages/widget/widget_listview.dart';
+import 'package:flutter_app/pages/widget/widget_gridview.dart';
+import 'package:flutter_app/pages/route_passing_value/route_passing_value.dart';
+import 'package:flutter_app/pages/gaode_map/gaode_map.dart';
+import 'package:flutter_app/pages/wechat_fluwx/wechat_fluwx.dart';
 
 /* *
  * handler就是每个路由的规则，编写handler就是配置路由规则，
@@ -68,5 +69,12 @@ Handler routePassingValueHanderl = Handler(
 Handler gaodeMapHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return GaodeMap();
+  },
+);
+
+// wechat_fluwx页面
+Handler wechatFluwxHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return WechatFluwx();
   },
 );

@@ -11,6 +11,7 @@ class Routes {
   static String listViewWidget = '/listViewWidget';
   static String gridViewWidget = '/gridViewWidget';
   static String gaodeMap = '/gaodeMap';
+  static String wechatFluwx = '/wechatFluwx';
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -29,5 +30,6 @@ class Routes {
     router.define(listViewWidget, handler: listViewWidgetHanderl);
     router.define(gridViewWidget, handler: gridViewWidgetHanderl);
     router.define(gaodeMap, handler: gaodeMapHanderl);
+    router.define(wechatFluwx, handler: wechatFluwxHanderl);
   }
 }
