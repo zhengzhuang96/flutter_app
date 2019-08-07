@@ -9,6 +9,11 @@ import 'package:flutter_app/pages/widget/widget_gridview.dart';
 import 'package:flutter_app/pages/route_passing_value/route_passing_value.dart';
 import 'package:flutter_app/pages/gaode_map/gaode_map.dart';
 import 'package:flutter_app/pages/wechat_fluwx/wechat_fluwx.dart';
+import 'package:flutter_app/pages/alipay_tobias/alipay_tobias.dart';
+import 'package:flutter_app/pages/toast/toast.dart';
+import 'package:flutter_app/pages/extended_components/flutter_swiper.dart';
+import 'package:flutter_app/pages/cached_network_image/cached_network_image.dart';
+import 'package:flutter_app/pages/charts_flutter/charts_flutter.dart';
 
 /* *
  * handler就是每个路由的规则，编写handler就是配置路由规则，
@@ -76,5 +81,40 @@ Handler gaodeMapHanderl = Handler(
 Handler wechatFluwxHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return WechatFluwx();
+  },
+);
+
+// wechat_fluwx页面
+Handler aliPayTobiasHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return AliPayTobias();
+  },
+);
+
+// toast页面
+Handler toastMessageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return ToastMessage();
+  },
+);
+
+// FlutterSwiper页面
+Handler flutterSwiperHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return FlutterSwiper();
+  },
+);
+
+// cachedNetworkImage页面
+Handler cachedNetworkImageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return CachedNetworkImageWidget();
+  },
+);
+
+// ChartsFlutter页面
+Handler chartsFlutterHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return ChartsFlutter();
   },
 );

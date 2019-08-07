@@ -27,8 +27,28 @@ class _HomePageState extends State<HomePage> {
     {
       'title': '扩展组件',
       'arr': [
+        {'title': 'flutter_Swiper轮播组件', 'router': '/flutterSwiper'},
+      ]
+    },
+    {
+      'title': '操作类',
+      'arr': [
+        {'title': 'Toast轻提示', 'router': '/toastMessage'},
+      ]
+    },
+    {
+      'title': '功能类',
+      'arr': [
+        {'title': '图片本地缓存', 'router': '/cachedNetworkImage'},
+        {'title': 'charts库定义图表', 'router': '/chartsFlutter'},
+      ]
+    },
+    {
+      'title': '扩展功能',
+      'arr': [
         {'title': '高德地图', 'router': '/gaodeMap'},
         {'title': '微信相关', 'router': '/wechatFluwx'},
+        {'title': '支付宝相关', 'router': '/aliPayTobias'},
       ]
     }
   ];

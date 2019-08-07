@@ -12,6 +12,11 @@ class Routes {
   static String gridViewWidget = '/gridViewWidget';
   static String gaodeMap = '/gaodeMap';
   static String wechatFluwx = '/wechatFluwx';
+  static String aliPayTobias = '/aliPayTobias';
+  static String toastMessage = '/toastMessage';
+  static String flutterSwiper = '/flutterSwiper';
+  static String cachedNetworkImage = '/cachedNetworkImage';
+  static String chartsFlutter = '/chartsFlutter';
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -31,5 +36,10 @@ class Routes {
     router.define(gridViewWidget, handler: gridViewWidgetHanderl);
     router.define(gaodeMap, handler: gaodeMapHanderl);
     router.define(wechatFluwx, handler: wechatFluwxHanderl);
+    router.define(aliPayTobias, handler: aliPayTobiasHanderl);
+    router.define(toastMessage, handler: toastMessageHanderl);
+    router.define(flutterSwiper, handler: flutterSwiperHanderl);
+    router.define(cachedNetworkImage, handler: cachedNetworkImageHanderl);
+    router.define(chartsFlutter, handler: chartsFlutterHanderl);
   }
 }

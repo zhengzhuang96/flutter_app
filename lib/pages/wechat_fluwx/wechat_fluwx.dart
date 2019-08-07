@@ -113,6 +113,18 @@ class _WechatFluwxState extends State<WechatFluwx> {
               Wechat.weChatPay();
             },
           ),
+          MaterialButton(
+            color: Colors.blue,
+            textColor: Colors.white,
+            child: Text('打开微信小程序'),
+            onPressed: () {
+              print('打开微信小程序');
+              Wechat.weChatWeapp();
+            },
+          ),
+          // MaterialButton(
+          //   color: Colors,
+          // )
         ],
       ),
     );

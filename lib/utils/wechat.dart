@@ -72,5 +72,12 @@ class Wechat {
     });
   }
 
+  // 打开微信小程序
+  static void weChatWeapp() {
+    fluwx.launchMiniProgram(
+      username: "gh_eb87c8d5bf06"
+    );
+  }
+
   
 }
