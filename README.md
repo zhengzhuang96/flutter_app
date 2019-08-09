@@ -4,6 +4,7 @@
 
 ## 项目中使用的插件库
 
+- [fluro: 路由](https://github.com/theyakka/fluro)
 - [flutter_swiper: 轮播图](https://github.com/best-flutter/flutter_swiper)
 - [flutter_screenutil: 屏幕适配方案](https://github.com/OpenFlutter/flutter_ScreenUtil)
 - [cached_network_image: 加载网络图片并本地缓存](https://github.com/renefloor/flutter_cached_network_image)
@@ -12,9 +13,9 @@
 - [tobias: 支付宝相关](https://github.com/OpenFlutter/tobias)
 - [fluttertoast: toast提示框](https://github.com/PonnamKarthik/FlutterToast)
 - [charts_flutter: 统计图表](https://github.com/google/charts)
+- [dropdown_menu: 下拉菜单](https://github.com/best-flutter/flutter_dropdown_menu)
 <!-- - [audio_recorder: any #录音、播放]()
 - [flutter_sound: ^1.1.5#录音]()
-- [dropdown_menu: ^1.1.0#下拉菜单]()
 - [simple_permissions:#权限获取]()
 - [easy_alert:#弹框]()
 - [barcode_scan 0.0.8#二维码识别qr_mobile_vision: ^0.1.0 #二维码识别 这个不好用]()

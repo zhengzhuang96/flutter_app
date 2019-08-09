@@ -4,6 +4,7 @@ import './router_handler.dart';
 
 class Routes {
   static String root = '/';
+  static String homePage = '/homePage';
   static String textWidget = '/textWidget';
   static String routePassingValue = '/routePassingValue';
   static String containerWidget = '/containerWidget';
@@ -17,6 +18,9 @@ class Routes {
   static String flutterSwiper = '/flutterSwiper';
   static String cachedNetworkImage = '/cachedNetworkImage';
   static String chartsFlutter = '/chartsFlutter';
+  static String flutterDropdownMenu = '/flutterDropdownMenu';
+  static String voiceSetPage = '/voiceSetPage';
+  static String ajaxPage = '/ajaxPage';
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -28,6 +32,7 @@ class Routes {
 
     // 路由页面配置
     // router.define('/category/error/404', handler: notFoundHanderl);
+    router.define(homePage, handler: homePageHanderl);
     router.define(textWidget, handler: textWidgetHanderl);
     router.define(routePassingValue, handler: routePassingValueHanderl);
     router.define(containerWidget, handler: containerWidgetHanderl);
@@ -41,5 +46,8 @@ class Routes {
     router.define(flutterSwiper, handler: flutterSwiperHanderl);
     router.define(cachedNetworkImage, handler: cachedNetworkImageHanderl);
     router.define(chartsFlutter, handler: chartsFlutterHanderl);
+    router.define(flutterDropdownMenu, handler: flutterDropdownMenuHanderl);
+    router.define(voiceSetPage, handler: voiceSetPageHanderl);
+    router.define(ajaxPage, handler: ajaxPageHanderl);
   }
 }

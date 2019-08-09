@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/wechat.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
-import 'dart:convert';
 
 /* *
  * 微信相关

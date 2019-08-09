@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import './home_page/home_page.dart';
-import './user_page/user_page.dart';
+import 'package:flutter_app/pages/home_page/home_page.dart';
+import 'package:flutter_app/pages/user_page/user_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IndexPage extends StatefulWidget {

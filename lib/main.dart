@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:fluro/fluro.dart';
 import 'package:amap_base/amap_base.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
-import './routers/routes.dart';
-import './routers/application.dart';
-import './pages/index_page.dart';
+import 'package:flutter_app/routers/routes.dart';
+import 'package:flutter_app/routers/application.dart';
+import 'package:flutter_app/pages/index_page.dart';
 
 void main() {
   // 初始化高德地图

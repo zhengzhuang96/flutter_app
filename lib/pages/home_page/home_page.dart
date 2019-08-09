@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../routers/application.dart';
+import 'package:flutter_app/routers/NavigatorUtil.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -31,6 +31,12 @@ class _HomePageState extends State<HomePage> {
       ]
     },
     {
+      'title': '数据交互',
+      'arr': [
+        {'title': 'AJAX请求', 'router': '/ajaxPage'},
+      ]
+    },
+    {
       'title': '操作类',
       'arr': [
         {'title': 'Toast轻提示', 'router': '/toastMessage'},
@@ -41,6 +47,8 @@ class _HomePageState extends State<HomePage> {
       'arr': [
         {'title': '图片本地缓存', 'router': '/cachedNetworkImage'},
         {'title': 'charts库定义图表', 'router': '/chartsFlutter'},
+        {'title': 'Flutter的下拉菜单', 'router': '/flutterDropdownMenu'},
+        {'title': '语音播放文本功能', 'router': '/voiceSetPage'},
       ]
     },
     {
@@ -152,9 +160,7 @@ class CommonPage extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          // Application.router.navigateTo(context, item['router']);
-          Application.router
-              .navigateTo(context, "${item['router']}?id=${123123123}");
+          NavigatorUtil.jump(context, "${item['router']}?id=${123123123}");
         },
         child: Row(
           children: <Widget>[

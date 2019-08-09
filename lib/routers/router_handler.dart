@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app/pages/home_page/home_page.dart';
 import 'package:flutter_app/pages/404.dart';
 import 'package:flutter_app/pages/widget/widget_text.dart';
 import 'package:flutter_app/pages/widget/widget_container.dart';
@@ -14,6 +15,9 @@ import 'package:flutter_app/pages/toast/toast.dart';
 import 'package:flutter_app/pages/extended_components/flutter_swiper.dart';
 import 'package:flutter_app/pages/cached_network_image/cached_network_image.dart';
 import 'package:flutter_app/pages/charts_flutter/charts_flutter.dart';
+import 'package:flutter_app/pages/flutter_dropdown_menu/flutter_dropdown_menu.dart';
+import 'package:flutter_app/pages/voice_set_page/voice_set_page.dart';
+import 'package:flutter_app/pages/ajax/ajax_page.dart';
 
 /* *
  * handler就是每个路由的规则，编写handler就是配置路由规则，
@@ -23,6 +27,13 @@ import 'package:flutter_app/pages/charts_flutter/charts_flutter.dart';
 Handler notFoundHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return NotFound();
+  },
+);
+
+// text_widget页面
+Handler homePageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return HomePage();
   },
 );
 
@@ -116,5 +127,26 @@ Handler cachedNetworkImageHanderl = Handler(
 Handler chartsFlutterHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return ChartsFlutter();
+  },
+);
+
+// flutterDropdownMenu页面
+Handler flutterDropdownMenuHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return FlutterDropdownMenu();
+  },
+);
+
+// voiceSetPage页面
+Handler voiceSetPageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return VoiceSetPage();
+  },
+);
+
+// ajaxPage页面
+Handler ajaxPageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return AjaxPage();
   },
 );
