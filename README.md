@@ -8,6 +8,7 @@
 - [flutter_swiper: 轮播图](https://github.com/best-flutter/flutter_swiper)
 - [flutter_screenutil: 屏幕适配方案](https://github.com/OpenFlutter/flutter_ScreenUtil)
 - [cached_network_image: 加载网络图片并本地缓存](https://github.com/renefloor/flutter_cached_network_image)
+- [dio: 一个强大的Dart Http请求库](https://github.com/flutterchina/dio)
 - [amap_base: 高德地图](https://github.com/OpenFlutter/amap_base_flutter)
 - [fluwx: 微信相关，支付、分享、登录](https://github.com/OpenFlutter/fluwx)
 - [tobias: 支付宝相关](https://github.com/OpenFlutter/tobias)
