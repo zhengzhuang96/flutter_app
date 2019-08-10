@@ -40,6 +40,8 @@ class _HomePageState extends State<HomePage> {
       'title': '操作类',
       'arr': [
         {'title': 'Toast轻提示', 'router': '/toastMessage'},
+        {'title': 'Loading', 'router': '/loading'},
+        {'title': 'flutter_easyrefresh', 'router': '/flutterEasyrefresh'},
       ]
     },
     {
@@ -49,6 +51,10 @@ class _HomePageState extends State<HomePage> {
         {'title': 'charts库定义图表', 'router': '/chartsFlutter'},
         {'title': 'Flutter的下拉菜单', 'router': '/flutterDropdownMenu'},
         {'title': '语音播放文本功能', 'router': '/voiceSetPage'},
+        {'title': 'webView', 'router': '/webview'},
+        {'title': '打电话，发短信，打开浏览器等', 'router': '/urlLauncher'},
+        {'title': '屏幕常亮', 'router': '/screenPage'},
+        {'title': 'App检测升级并安装', 'router': '/appUpdate'},
       ]
     },
     {

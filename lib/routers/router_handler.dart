@@ -18,6 +18,15 @@ import 'package:flutter_app/pages/charts_flutter/charts_flutter.dart';
 import 'package:flutter_app/pages/flutter_dropdown_menu/flutter_dropdown_menu.dart';
 import 'package:flutter_app/pages/voice_set_page/voice_set_page.dart';
 import 'package:flutter_app/pages/ajax/ajax_page.dart';
+import 'package:flutter_app/pages/webview/webview.dart';
+import 'package:flutter_app/pages/loading/loading.dart';
+import 'package:flutter_app/pages/flutter_easyrefresh/flutter_easyrefresh.dart';
+import 'package:flutter_app/pages/flutter_easyrefresh/basic_page/basic_page.dart';
+import 'package:flutter_app/pages/flutter_easyrefresh/phoenix_page/phoenix_page.dart';
+import 'package:flutter_app/pages/flutter_easyrefresh/user_profile_page/user_profile_page.dart';
+import 'package:flutter_app/pages/url_launcher/url_launcher.dart';
+import 'package:flutter_app/pages/screen/screen.dart';
+import 'package:flutter_app/pages/app_update/app_update.dart';
 
 /* *
  * handler就是每个路由的规则，编写handler就是配置路由规则，
@@ -148,5 +157,68 @@ Handler voiceSetPageHanderl = Handler(
 Handler ajaxPageHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return AjaxPage();
+  },
+);
+
+// webview页面
+Handler webviewHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return Webview();
+  },
+);
+
+// loading页面
+Handler loadingHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return Loading();
+  },
+);
+
+// flutterEasyrefresh页面
+Handler flutterEasyrefreshHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return FlutterEasyrefresh();
+  },
+);
+
+// basicPage页面
+Handler basicPageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return BasicPage();
+  },
+);
+
+// phoenixPage页面
+Handler phoenixPageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return PhoenixPage();
+  },
+);
+
+// userProfilePage页面
+Handler userProfilePageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return UserProfilePage();
+  },
+);
+
+// urlLauncher页面
+Handler urlLauncherHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return UrlLauncher();
+  },
+);
+
+// screenPage页面
+Handler screenPageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return ScreenPage();
+  },
+);
+
+// appUpdate页面
+Handler appUpdateHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return AppUpdate();
   },
 );

@@ -21,6 +21,15 @@ class Routes {
   static String flutterDropdownMenu = '/flutterDropdownMenu';
   static String voiceSetPage = '/voiceSetPage';
   static String ajaxPage = '/ajaxPage';
+  static String webview = '/webview';
+  static String loading = '/loading';
+  static String flutterEasyrefresh = '/flutterEasyrefresh';
+  static String basicPage = '/basicPage';
+  static String phoenixPage = '/phoenixPage';
+  static String userProfilePage = '/userProfilePage';
+  static String urlLauncher = '/urlLauncher';
+  static String screenPage = '/screenPage';
+  static String appUpdate = '/appUpdate';
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -49,5 +58,14 @@ class Routes {
     router.define(flutterDropdownMenu, handler: flutterDropdownMenuHanderl);
     router.define(voiceSetPage, handler: voiceSetPageHanderl);
     router.define(ajaxPage, handler: ajaxPageHanderl);
+    router.define(webview, handler: webviewHanderl);
+    router.define(loading, handler: loadingHanderl);
+    router.define(flutterEasyrefresh, handler: flutterEasyrefreshHanderl);
+    router.define(basicPage, handler: basicPageHanderl);
+    router.define(phoenixPage, handler: phoenixPageHanderl);
+    router.define(userProfilePage, handler: userProfilePageHanderl);
+    router.define(urlLauncher, handler: urlLauncherHanderl);
+    router.define(screenPage, handler: screenPageHanderl);
+    router.define(appUpdate, handler: appUpdateHanderl);
   }
 }
