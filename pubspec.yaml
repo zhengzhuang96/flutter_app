@@ -26,6 +26,7 @@ dependencies:
   dio: ^2.1.13
   flutter_screenutil: ^0.5.3
   fluro: ^1.5.1
+  provide: ^1.0.2
   amap_base: ^0.3.5
   fluwx: ^1.0.4
   tobias: ^1.0.0+1
@@ -43,6 +44,7 @@ dependencies:
   screen: ^0.0.5
   package_info: ^0.4.0+6
   shared_preferences : ^0.5.3+4
+  # barcode_scan: ^1.0.0
 
 dev_dependencies:
   flutter_test:

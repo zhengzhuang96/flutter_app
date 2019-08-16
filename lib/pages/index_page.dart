@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/home_page/home_page.dart';
 import 'package:flutter_app/pages/user_page/user_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_app/utils/utils_export.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _IndexPageState extends State<IndexPage> {
     ),
   ];
 
-  final List tabBodies = [
+  final List<Widget> tabBodies = [
     HomePage(),
     UserPage()
   ];
@@ -33,6 +34,9 @@ class _IndexPageState extends State<IndexPage> {
   void initState() {
     currentPage = tabBodies[currentIndex];
     super.initState();
+    
+    // 检查App版本更新
+    getAppUpdate(context);
   }
 
   @override
@@ -51,7 +55,10 @@ class _IndexPageState extends State<IndexPage> {
           });
         },
       ),
-      body: currentPage,
+      body: IndexedStack(
+        index: currentIndex,
+        children: tabBodies,
+      ),
     );
   }
 }

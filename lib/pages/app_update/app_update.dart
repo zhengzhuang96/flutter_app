@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_app/utils/utils_export.dart';
 
 /* *
  * App版本更新
@@ -42,18 +43,6 @@ class _AppUpdateState extends State<AppUpdate> {
 
   //执行版本更新的网络请求
   _getNewVersionAPP() async {
-    // DioUtil.getInstance().get(context, url).then((response) {
-    //   if (response != null) {
-    //     setState(() {
-    //       var data = response.data;
-    //       _serviceVersionCode = data["versionCode"].toString(); //版本号
-    //       _serviceVersionName = data["versionName"].toString(); //版本名称
-    //       _serviceVersionPlatform = data["versionPlatform"].toString();//版本平台
-    //       _serviceVersionApp = data["versionApp"].toString();//下载的url
-    //       _checkVersionCode();
-    //     });
-    //   }
-    // });
     setState(() {
       _serviceVersionCode = '1.0.0'; //版本号
       _serviceVersionName = '1.0.0'; //版本名称
@@ -68,89 +57,48 @@ class _AppUpdateState extends State<AppUpdate> {
   _checkVersionCode() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     String _currentVersionCode = packageInfo.version;
-    // int serviceVersionCode = int.parse(_serviceVersionCode); //String -> int
-    int currentVersionCode = int.parse(_currentVersionCode); //String -> int
-    print('packageInfo');
-    // print(_serviceVersionCode);
-    // print(currentVersionCode);
-    // if (serviceVersionCode > currentVersionCode) {
-    //   _showNewVersionAppDialog(); //弹出对话框
-    // }
+    if (_serviceVersionCode.compareTo(_currentVersionCode) == 1) {
+      _showNewVersionAppDialog(); //弹出对话框
+    } else {
+      toastCenter('暂无新版本');
+    }
   }
 
   Future<void> _showNewVersionAppDialog() async {
-    if (_serviceVersionPlatform == "android") {
-      return showDialog<void>(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Row(
-                children: <Widget>[
-                  Image.asset("images/ic_launcher_icon.png",
-                      height: 35.0, width: 35.0),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30.0, 0.0, 10.0, 0.0),
-                    child: Text("项目名称"),
-                  ),
-                ],
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Row(
+            children: <Widget>[
+              Image.asset("images/ic_launcher_icon.png",
+                  height: 35.0, width: 35.0),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30.0, 0.0, 10.0, 0.0),
+                child: Text("flutter_app"),
               ),
-              content: Text('版本更新'),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('Later'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                FlatButton(
-                  child: Text('DownLoad'),
-                  onPressed: () {
-                    //https://play.google.com/store/apps/details?id=项目包名
-                    launch(_serviceVersionApp); //到Google Play 官网下载
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    } else {
-      //iOS
-      return showDialog<void>(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: Row(
-                children: <Widget>[
-                  Image.asset("images/ic_launcher_icon.png",
-                      height: 35.0, width: 35.0),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(30.0, 0.0, 10.0, 0.0),
-                      child: Text(Strings.new_version_title))
-                ],
-              ),
-              content: Text("新版本 v$_serviceVersionName is available. " +
-                  Strings.new_version_dialog_content),
-              actions: <Widget>[
-                CupertinoDialogAction(
-                  child: Text(Strings.new_version_button_later),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                CupertinoDialogAction(
-                  child: Text(Strings.new_version_button_download),
-                  onPressed: () {
-                    //_serviceVersionApp="http://itunes.apple.com/cn/lookup?id=项目包名"
-                    launch(_serviceVersionApp); //到APP store 官网下载
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    }
+            ],
+          ),
+          content: Text('检测到新版本'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('以后升级'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: Text('立马升级'),
+              onPressed: () {
+                launch(_serviceVersionApp);
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -162,6 +110,7 @@ class _AppUpdateState extends State<AppUpdate> {
       body: RaisedButton(
         child: Text('检测更新'),
         onPressed: () {
+          _checkVersionCode();
           print('检测更新');
         },
       ),

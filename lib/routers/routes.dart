@@ -30,6 +30,15 @@ class Routes {
   static String urlLauncher = '/urlLauncher';
   static String screenPage = '/screenPage';
   static String appUpdate = '/appUpdate';
+  static String providePage = '/providePage';
+  static String barcodeScan = '/barcodeScan';
+  static String blocDemo = '/blocDemo';
+  static String drawerDemo = '/drawerDemo';
+  static String sliversDemo = '/sliversDemo';
+  static String tabbarDemo = '/tabbarDemo';
+  static String formDemo = '/formDemo';
+  static String formRegister = '/formRegister';
+  static String materialComponents = '/materialComponents';
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -67,5 +76,14 @@ class Routes {
     router.define(urlLauncher, handler: urlLauncherHanderl);
     router.define(screenPage, handler: screenPageHanderl);
     router.define(appUpdate, handler: appUpdateHanderl);
+    router.define(providePage, handler: providePageHanderl);
+    router.define(barcodeScan, handler: barcodeScanHanderl);
+    router.define(blocDemo, handler: blocDemoHanderl);
+    router.define(drawerDemo, handler: drawerDemoHanderl);
+    router.define(sliversDemo, handler: sliversDemoHanderl);
+    router.define(tabbarDemo, handler: tabbarDemoHanderl);
+    router.define(formDemo, handler: formDemoHanderl);
+    router.define(formRegister, handler: formRegisterHanderl);
+    router.define(materialComponents, handler: materialComponentsHanderl);
   }
 }

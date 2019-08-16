@@ -1,93 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routers/NavigatorUtil.dart';
+import 'package:flutter_app/blocs/bloc_provider.dart';
+import 'package:flutter_app/blocs/home_page/home_page_bloc.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<Map> dataArr = [
-    {
-      'title': '基础组件',
-      'arr': [
-        {'title': 'Text Widget 文本组件的使用', 'router': '/textWidget'},
-        {'title': 'Container容器组件的使用', 'router': '/containerWidget'},
-        {'title': 'Image图片组件的使用', 'router': '/imageWidget'},
-        {'title': 'ListView 列表组件简介', 'router': '/listViewWidget'},
-        {'title': 'GridView网格列表组件', 'router': '/gridViewWidget'},
-      ]
-    },
-    {
-      'title': '路由',
-      'arr': [
-        {'title': '路由传值', 'router': '/routePassingValue'},
-      ]
-    },
-    {
-      'title': '扩展组件',
-      'arr': [
-        {'title': 'flutter_Swiper轮播组件', 'router': '/flutterSwiper'},
-      ]
-    },
-    {
-      'title': '数据交互',
-      'arr': [
-        {'title': 'AJAX请求', 'router': '/ajaxPage'},
-      ]
-    },
-    {
-      'title': '操作类',
-      'arr': [
-        {'title': 'Toast轻提示', 'router': '/toastMessage'},
-        {'title': 'Loading', 'router': '/loading'},
-        {'title': 'flutter_easyrefresh', 'router': '/flutterEasyrefresh'},
-      ]
-    },
-    {
-      'title': '功能类',
-      'arr': [
-        {'title': '图片本地缓存', 'router': '/cachedNetworkImage'},
-        {'title': 'charts库定义图表', 'router': '/chartsFlutter'},
-        {'title': 'Flutter的下拉菜单', 'router': '/flutterDropdownMenu'},
-        {'title': '语音播放文本功能', 'router': '/voiceSetPage'},
-        {'title': 'webView', 'router': '/webview'},
-        {'title': '打电话，发短信，打开浏览器等', 'router': '/urlLauncher'},
-        {'title': '屏幕常亮', 'router': '/screenPage'},
-        {'title': 'App检测升级并安装', 'router': '/appUpdate'},
-      ]
-    },
-    {
-      'title': '扩展功能',
-      'arr': [
-        {'title': '高德地图', 'router': '/gaodeMap'},
-        {'title': '微信相关', 'router': '/wechatFluwx'},
-        {'title': '支付宝相关', 'router': '/aliPayTobias'},
-      ]
-    }
-  ];
-
-  List<Map> homePageContent = [];
-
-  @override
-  void initState() {
-    setState(() {
-      homePageContent = dataArr;
-    });
-    super.initState();
-  }
-
+/* *
+ * HomePage
+ * 首页
+ */
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<Map> homePageContentList = homePageContent;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Demo'),
-      ),
-      body: ListView(
-        children: <Widget>[
-          CommonPage(homePageContentList: homePageContentList),
-        ],
+    return BlocProvider<HomePageBloc>(
+      bloc: HomePageBloc(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('data'),
+        ),
+        body: CommonPage(),
       ),
     );
   }
@@ -95,17 +24,26 @@ class _HomePageState extends State<HomePage> {
 
 // 常用组件列表
 class CommonPage extends StatelessWidget {
-  final List homePageContentList;
-
-  CommonPage({Key key, this.homePageContentList}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final HomePageBloc bloc = BlocProvider.of<HomePageBloc>(context);
     return Container(
-      child: Column(
-        children: homePageContentList.map((item) {
-          return _commonList(context, item);
-        }).toList(),
+      child: StreamBuilder<List>(
+        stream: bloc.uiStream,
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: Text('Loading...'),
+            );
+          }
+          return ListView(
+            shrinkWrap: true,
+            children: snapshot.data.map<Widget>((item) {
+              return _commonList(context, item);
+            }).toList(),
+          );
+        },
       ),
     );
   }

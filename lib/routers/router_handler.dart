@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app/pages/drawer_demo/drawer_demo.dart';
+import 'package:flutter_app/pages/form/form_demo.dart';
+import 'package:flutter_app/pages/form/form_register.dart';
 import 'package:flutter_app/pages/home_page/home_page.dart';
 import 'package:flutter_app/pages/404.dart';
+import 'package:flutter_app/pages/material/material_components.dart';
+import 'package:flutter_app/pages/slivers/slivers_demo.dart';
+import 'package:flutter_app/pages/tabbar/tabbar_demo.dart';
 import 'package:flutter_app/pages/widget/widget_text.dart';
 import 'package:flutter_app/pages/widget/widget_container.dart';
 import 'package:flutter_app/pages/widget/widget_image.dart';
@@ -27,6 +33,9 @@ import 'package:flutter_app/pages/flutter_easyrefresh/user_profile_page/user_pro
 import 'package:flutter_app/pages/url_launcher/url_launcher.dart';
 import 'package:flutter_app/pages/screen/screen.dart';
 import 'package:flutter_app/pages/app_update/app_update.dart';
+import 'package:flutter_app/pages/provide/provide.dart';
+import 'package:flutter_app/pages/barcode_scan/barcode_scan.dart';
+import 'package:flutter_app/pages/bloc/bloc_demo.dart';
 
 /* *
  * handler就是每个路由的规则，编写handler就是配置路由规则，
@@ -220,5 +229,68 @@ Handler screenPageHanderl = Handler(
 Handler appUpdateHanderl = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return AppUpdate();
+  },
+);
+
+// providePage页面
+Handler providePageHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return ProvidePage();
+  },
+);
+
+// barcodeScan页面
+Handler barcodeScanHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return BarcodeScan();
+  },
+);
+
+// blocDemo页面
+Handler blocDemoHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return BlocDemo();
+  },
+);
+
+// drawerDemo页面
+Handler drawerDemoHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return DrawerDemo();
+  },
+);
+
+// sliversDemo页面
+Handler sliversDemoHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return SliversDemo();
+  },
+);
+
+// tabbarDemo页面
+Handler tabbarDemoHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return TabbarDemo();
+  },
+);
+
+// formDemo页面
+Handler formDemoHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return FormDemo();
+  },
+);
+
+// formRegister页面
+Handler formRegisterHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return FormRegister();
+  },
+);
+
+// materialComponents页面
+Handler materialComponentsHanderl = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return MaterialComponents();
   },
 );
