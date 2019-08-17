@@ -14,17 +14,17 @@ class _IndexPageState extends State<IndexPage> {
   final List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.home),
-      title: Text('首页')
+      title: Text('首页'),
     ),
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.profile_circled),
-      title: Text('我的')
+      title: Text('我的'),
     ),
   ];
 
   final List<Widget> tabBodies = [
     HomePage(),
-    UserPage()
+    UserPage(),
   ];
 
   int currentIndex = 0;
@@ -34,7 +34,7 @@ class _IndexPageState extends State<IndexPage> {
   void initState() {
     currentPage = tabBodies[currentIndex];
     super.initState();
-    
+
     // 检查App版本更新
     getAppUpdate(context);
   }
@@ -48,10 +48,11 @@ class _IndexPageState extends State<IndexPage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         items: bottomTabs,
-        onTap: (index){
+        fixedColor: Colors.red,
+        onTap: (index) {
           setState(() {
-           currentIndex = index;
-           currentPage = tabBodies[currentIndex]; 
+            currentIndex = index;
+            currentPage = tabBodies[currentIndex];
           });
         },
       ),

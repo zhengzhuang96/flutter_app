@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/material/chip_demo.dart';
+import 'package:flutter_app/pages/material/datetime_demo.dart';
 import './button_demo.dart';
 import './floating_action_button.dart';
 import './popup_menu_button.dart';
 import './checkbox_demo.dart';
+import './simple_dialog.dart';
 
 /* *
  * 小部件
@@ -32,6 +35,18 @@ class MaterialComponents extends StatelessWidget {
           ListItem(
             title: 'CheckboxDemo',
             page: CheckboxDemo(),
+          ),
+          ListItem(
+            title: 'DateTimeDemo',
+            page: DateTimeDemo(),
+          ),
+          ListItem(
+            title: '对话框（选着对话框）',
+            page: SimpleDialogDemo(),
+          ),
+          ListItem(
+            title: 'Chip 小碎片 小部件',
+            page: ChipDemo(),
           ),
         ],
       ),
