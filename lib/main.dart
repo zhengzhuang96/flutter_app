@@ -2,7 +2,7 @@
  * @Author: {zhengzhuang}
  * @Date: 2022-08-02 15:43:02
  * @LastEditors: {zhengzhuang}
- * @LastEditTime: 2022-08-16 11:19:45
+ * @LastEditTime: 2024-11-08 15:48:30
  * @Description: In User Settings Edit
  */
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

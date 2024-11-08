@@ -1,80 +1,66 @@
 /*
  * @Author: {zhengzhuang}
- * @Date: 2022-08-02 15:55:19
+ * @Date: 2024-11-08 15:42:10
  * @LastEditors: {zhengzhuang}
- * @LastEditTime: 2022-10-31 10:27:09
- * @Description: In User Settings Edit
+ * @LastEditTime: 2024-11-08 15:47:40
+ * @Description:
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../routes/navigator_util.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/pages/home_page.dart';
+import 'package:flutter_app/pages/user_page.dart';
 
 class IndexPage extends StatefulWidget {
-  const IndexPage({Key? key}) : super(key: key);
+  const IndexPage({super.key});
 
   @override
-  State<IndexPage> createState() => _IndexPageState();
+  _IndexPageState createState() => _IndexPageState();
 }
 
 class _IndexPageState extends State<IndexPage> {
+  final List<BottomNavigationBarItem> bottomTabs = [
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.home),
+      label: '首页',
+      // title: Text('首页')
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.profile_circled),
+      label: '我的',
+    ),
+  ];
+
+  final List<Widget> tabBodies = [HomePage(), UserPage()];
+
+  int currentIndex = 0;
+  var currentPage;
+
+  @override
+  void initState() {
+    currentPage = tabBodies[currentIndex];
+    super.initState();
+
+    // 检查App版本更新
+    // getAppUpdate(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('远度云flutter-模版'),
+      backgroundColor: Color.fromRGBO(244, 245, 245, 1.0),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        items: bottomTabs,
+        fixedColor: Colors.red,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+            currentPage = tabBodies[currentIndex];
+          });
+        },
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            const SizedBox(height: 10.0),
-            _buildMaterialButton(
-              '计数器 - 加入了状态管理',
-              () {
-                NavigatorUtil.jump('/counters');
-              },
-            ),
-            const SizedBox(height: 10.0),
-            _buildMaterialButton(
-              '屏幕适配方案',
-              () {
-                NavigatorUtil.jump('/screenutil');
-              },
-            ),
-            const SizedBox(height: 10.0),
-            _buildMaterialButton(
-              'Loading',
-              () {
-                NavigatorUtil.jump('/loading');
-              },
-            ),
-            const SizedBox(height: 10.0),
-            _buildMaterialButton(
-              'android&ios升级方案',
-              () {
-                NavigatorUtil.jump('/update');
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // 按钮组件
-  Widget _buildMaterialButton(String text, VoidCallback onPressed) {
-    return MaterialButton(
-      minWidth: ScreenUtil().setWidth(500),
-      height: ScreenUtil().setHeight(80),
-      color: Colors.blueAccent,
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: ScreenUtil().setSp(30),
-        ),
-      ),
+      body: IndexedStack(index: currentIndex, children: tabBodies),
     );
   }
 }
