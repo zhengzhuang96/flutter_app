@@ -2,21 +2,19 @@
  * @Author: {zhengzhuang}
  * @Date: 2022-08-09 15:54:23
  * @LastEditors: {zhengzhuang}
- * @LastEditTime: 2022-08-09 16:01:57
+ * @LastEditTime: 2024-12-31 10:52:03
  * @Description: 屏幕适配demo
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScreenutilPage extends StatelessWidget {
-  const ScreenutilPage({Key? key}) : super(key: key);
+  const ScreenutilPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('屏幕适配'),
-      ),
+      appBar: AppBar(title: const Text('屏幕适配')),
       body: Column(
         children: [
           Container(
@@ -26,9 +24,7 @@ class ScreenutilPage extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               '750 * 100',
-              style: TextStyle(
-                fontSize: ScreenUtil().setSp(30),
-              ),
+              style: TextStyle(fontSize: ScreenUtil().setSp(30)),
             ),
           ),
           Row(
@@ -40,9 +36,7 @@ class ScreenutilPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   '375 * 100',
-                  style: TextStyle(
-                    fontSize: ScreenUtil().setSp(30),
-                  ),
+                  style: TextStyle(fontSize: ScreenUtil().setSp(30)),
                 ),
               ),
               Container(
@@ -52,9 +46,7 @@ class ScreenutilPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   '375 * 100',
-                  style: TextStyle(
-                    fontSize: ScreenUtil().setSp(30),
-                  ),
+                  style: TextStyle(fontSize: ScreenUtil().setSp(30)),
                 ),
               ),
             ],

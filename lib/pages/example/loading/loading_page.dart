@@ -2,22 +2,20 @@
  * @Author: {zhengzhuang}
  * @Date: 2022-08-16 11:24:02
  * @LastEditors: {zhengzhuang}
- * @LastEditTime: 2022-08-16 11:27:45
- * @Description: 
+ * @LastEditTime: 2024-12-31 10:51:57
+ * @Description:
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingPage extends StatelessWidget {
-  const LoadingPage({Key? key}) : super(key: key);
+  const LoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
-      appBar: AppBar(
-        title: const Text('Loading'),
-      ),
+      appBar: AppBar(title: const Text('Loading')),
       body: ListView(
         children: <Widget>[
           Column(
@@ -47,7 +45,9 @@ class LoadingPage extends StatelessWidget {
                 children: const [
                   SpinKitWave(color: Colors.white, type: SpinKitWaveType.start),
                   SpinKitWave(
-                      color: Colors.white, type: SpinKitWaveType.center),
+                    color: Colors.white,
+                    type: SpinKitWaveType.center,
+                  ),
                   SpinKitWave(color: Colors.white, type: SpinKitWaveType.end),
                 ],
               ),
@@ -58,7 +58,9 @@ class LoadingPage extends StatelessWidget {
                   SpinKitThreeBounce(color: Colors.white),
                   SpinKitWanderingCubes(color: Colors.white),
                   SpinKitWanderingCubes(
-                      color: Colors.white, shape: BoxShape.circle),
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
                 ],
               ),
               const SizedBox(height: 48.0),
@@ -68,7 +70,9 @@ class LoadingPage extends StatelessWidget {
                   SpinKitCircle(color: Colors.white),
                   SpinKitFadingFour(color: Colors.white),
                   SpinKitFadingFour(
-                      color: Colors.white, shape: BoxShape.rectangle),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                  ),
                 ],
               ),
               const SizedBox(height: 48.0),
@@ -95,7 +99,9 @@ class LoadingPage extends StatelessWidget {
                 children: const [
                   SpinKitFadingGrid(color: Colors.white),
                   SpinKitFadingGrid(
-                      color: Colors.white, shape: BoxShape.rectangle),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                  ),
                   SpinKitHourGlass(color: Colors.white),
                 ],
               ),
@@ -105,13 +111,15 @@ class LoadingPage extends StatelessWidget {
                 children: const [
                   SpinKitSpinningCircle(color: Colors.white),
                   SpinKitSpinningCircle(
-                      color: Colors.white, shape: BoxShape.rectangle),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                  ),
                   SpinKitFadingCircle(color: Colors.white),
                 ],
               ),
               const SizedBox(height: 64.0),
             ],
-          )
+          ),
         ],
       ),
     );
